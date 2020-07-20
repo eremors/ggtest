@@ -4,7 +4,7 @@
 	</head>
 <body>
 
-<h1>Welcome to Instant Refund 1132</h1>
+<h1>Welcome to Instant Refund 1200</h1>
 <p>Please click "chat" button to talk to an agent about one of the following records:</p>
 
 <table border="1">
@@ -37,17 +37,6 @@
         url('https://c1.sfdcstatic.com/etc/clientlibs/sfdc-aem-master/clientlibs_base/fonts/SalesforceSans-Regular.ttf') format('truetype');
     }
 </style>
-
-<script>
-function startEmbeddedChat() {
-	embedded_svc.liveAgentAPI.startChat({
-		directToAgentRouting: {
-			buttonId: “5731j0000004DEb”,
-			fallback: true
-		}
-	});
-}
-</script>
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
@@ -101,13 +90,15 @@ function startEmbeddedChat() {
         embedded_svc.settings.enabledFeatures = ['LiveAgent'];
         embedded_svc.settings.entryFeature = 'LiveAgent';
 
-//   embedded_svc.liveAgentAPI.startChat({
-//             directToAgentRouting: {
-//             buttonId: “5731j0000004DEb”,
-//             // userId: “”,
-//             fallback: true
-//             }
-//         });
+  /*embedded_svc.liveAgentAPI.startChat({
+             directToAgentRouting: {
+             buttonId: '5731j0000004DEb',
+             // userId: “”,
+             fallback: true
+             },
+			 extraPrechatInfo: [],
+			extraPrechatFormDetails: []
+         });*/
 
   
            
@@ -139,6 +130,18 @@ function startEmbeddedChat() {
         initESW('https://service.force.com');
     }
     
+</script>
+
+<script language="JavaScript" type="text/javascript">
+function startEmbeddedChat() {
+
+	embedded_svc.liveAgentAPI.startChat({
+		directToAgentRouting: {
+			buttonId: '5731j0000004DEb',
+			fallback: true
+		}
+	});
+}
 </script>
 
 </body>
