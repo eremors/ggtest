@@ -4,7 +4,7 @@
 	</head>
 <body>
 
-<h1>Welcome to Instant Refund 1239</h1>
+<h1>Welcome to Instant Refund 1400</h1>
 <p>Please click "chat" button to talk to an agent about one of the following records:</p>
 
 <table border="1">
@@ -12,10 +12,10 @@
 <td>Record1</td><td><Chat</td>
 </tr>
 <tr>
-<td>Record2</td><td>Chat</td>
+<td>Record2</td><td><button onclick="startEmbeddedChat('5001j000005BKpbAAG')">Chat</button></td>
 </tr>
 <tr>
-<td>Record3</td><td><button onclick="startEmbeddedChat()">Chat</button></td>
+<td>Record3</td><td><button onclick="startEmbeddedChat('5001j000005BKr3AAG')">Chat</button></td>
 </tr>
 <tr>
 <td>Record4</td><td>Chat</td>
@@ -121,7 +121,7 @@
 </script>
 
 <script language="JavaScript" type="text/javascript">
-function startEmbeddedChat() {
+function startEmbeddedChat(pCaseId) {
 
 	embedded_svc.liveAgentAPI.startChat({
 		directToAgentRouting: {
@@ -141,7 +141,7 @@ function startEmbeddedChat() {
 		}],
 		extraPrechatFormDetails: [{
 			"label":"Case ID",
-			"value":"5001j000005BKr3AAG",
+			"value":pCaseId,
 			"transcriptFields":[],
 			"displayToAgent":true
 		}]
