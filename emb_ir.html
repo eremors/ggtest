@@ -4,12 +4,24 @@
 	</head>
 <body>
 
-<h1>Welcome to GG/IR Chat</h1>
+<h1>Welcome to Instant Refund 1400</h1>
+<p>Please click "chat" button to talk to an agent about one of the following records:</p>
+<p><a href="index.html">Back</a></p>
 
-<p><a href="emb_ir.html">IR Simulation</a></p>
-<p><a href="emb_auto.html">GG Chat Simulation (auto-launch)</a></p>
-<p><a href="emb.html">GG Chat Simulation</a></p>
-
+<table border="1">
+<tr>
+<td>Record1</td><td><Chat</td>
+</tr>
+<tr>
+<td>Record2</td><td><button onclick="startEmbeddedChat('5001j000005BKpbAAG')">Chat</button></td>
+</tr>
+<tr>
+<td>Record3</td><td><button onclick="startEmbeddedChat('5001j000005BKr3AAG')">Chat</button></td>
+</tr>
+<tr>
+<td>Record4</td><td>Chat</td>
+</tr>
+</table>
 
 
 <style type='text/css'>
@@ -30,7 +42,7 @@
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
     var initESW = function(gslbBaseURL) {
-        embedded_svc.settings.displayHelpButton = false; //Or false
+        embedded_svc.settings.displayHelpButton = true; //Or false
         embedded_svc.settings.language = 'tr'; //For example, enter 'en' or 'en-US'
 
         embedded_svc.settings.defaultMinimizedText = 'Canlı Yardım'; //(Defaults to Chat with an Expert)
@@ -52,7 +64,29 @@
     // TG - automatically opens post-chat URL for survey
     
     embedded_svc.settings.autoOpenPostChat = true;
-     
+        
+    // TG - update Case     
+
+    /*embedded_svc.settings.extraPrechatFormDetails = [{
+        "label":"Case ID",
+        "value":"5001j000005BKr3AAG",
+        "transcriptFields":[],
+        "displayToAgent":true
+    }];
+            
+    embedded_svc.settings.extraPrechatInfo = [{
+        "entityFieldMaps":[{
+            "isExactMatch":true,
+            "fieldName":"Id",
+            "doCreate":false,
+            "doFind":true,
+            "label":"Case ID"
+            }],
+        "entityName":"Case",
+        "saveToTranscript":"CaseID"
+    }];*/
+    
+        
         
         embedded_svc.settings.enabledFeatures = ['LiveAgent'];
         embedded_svc.settings.entryFeature = 'LiveAgent';
@@ -87,6 +121,34 @@
     
 </script>
 
+<script language="JavaScript" type="text/javascript">
+function startEmbeddedChat(pCaseId) {
+
+	embedded_svc.liveAgentAPI.startChat({
+		directToAgentRouting: {
+			buttonId: '5731j0000004DEb',
+			fallback: true
+		},
+		extraPrechatInfo: [{
+			"entityFieldMaps":[{
+				"isExactMatch":true,
+				"fieldName":"Id",
+				"doCreate":false,
+				"doFind":true,
+				"label":"Case ID"
+			}],
+			"entityName":"Case",
+			"saveToTranscript":"CaseID"
+		}],
+		extraPrechatFormDetails: [{
+			"label":"Case ID",
+			"value":pCaseId,
+			"transcriptFields":[],
+			"displayToAgent":true
+		}]
+	});
+}
+</script>
 
 </body>
 </html>
