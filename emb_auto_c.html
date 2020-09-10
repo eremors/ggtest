@@ -3,7 +3,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	</head>
-<body onload="startEmbeddedChat('5001j000005zhSPAAY')">
+<body onload="startEmbeddedChat('5001j000005zhSPAAY','Argun','Semavi')">
 
 <h1>Welcome to GG Chat (Auto-start with contact) 1434</h1>
 <p>Please click "chat" button to talk to an agent about one of the following records:</p>
@@ -102,7 +102,7 @@
 </script>
 
 <script language="JavaScript" type="text/javascript">
-function startEmbeddedChat(pCaseId) {
+function startEmbeddedChat(pCaseId,pFirstName,pLastName) {
 
 	embedded_svc.liveAgentAPI.startChat({
 		directToAgentRouting: {
@@ -148,11 +148,11 @@ function startEmbeddedChat(pCaseId) {
 		},
 		{
 		  "label": "First Name",
-		  "value": "John",
+		  "value": pFirstName,
 		  "displayToAgent": true
 		}, {
 		  "label": "Last Name",
-		  "value": "Doe",
+		  "value": pLastName,
 		  "displayToAgent": true
 		}]
 	});
