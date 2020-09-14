@@ -42,11 +42,17 @@
 
 <script>
 console.log("log erto : script is worked")
-document.getElementsByClassName("closeButton").addEventListener("click", hideCloseButton);
+var closeButtons=document.getElementsByClassName("closeButton");
+console.log("log erto : dom getByClass method is ran : ", closeButtons)
+var currElementOfCollection = closeButtons[0];
+console.log("log erto : first element of collection is  : ", currElementOfCollection)
+
+currElementOfCollection.addEventListener("click", hideCloseButton);
 console.log("log erto : dom listener is added")
+
 function hideCloseButton() {
-	console.log("log erto : listener method is ran")
-    document.getElementsByClassName("closeButton").style.visibility = "hidden";
+	console.log("log erto : listener(hider) method is ran")
+    currElementOfCollection.style.visibility = "hidden";
 }
 </script>
 
