@@ -41,8 +41,14 @@
 </style>
 
 <script>
-document.getElementsByClassName("closeButton")[0].addEventListener("click", hideCloseButton);
-	console.log("log erto : dom listener is added for : ",document.getElementsByClassName("closeButton")[0]);
+while(document.getElementsByClassName("closeButton")[0]==undefined){
+console.log("try again")
+  }
+if(document.getElementsByClassName("closeButton")[0]!=undefined){
+  console.log("log erto :",document.getElementsByClassName("closeButton")[0]);
+  document.getElementsByClassName("closeButton")[0].addEventListener("click", hideCloseButton);
+    console.log("log erto : dom listener is added for : ",document.getElementsByClassName("closeButton")[0]);
+  }
 
 function hideCloseButton() {
 console.log("log erto : button is clicked and listener(hider) method is ran")
