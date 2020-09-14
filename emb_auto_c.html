@@ -41,9 +41,7 @@
 </style>
 
 <script>
-while(document.getElementsByClassName("closeButton")[0]==undefined){
-console.log("try again")
-  }
+
 if(document.getElementsByClassName("closeButton")[0]!=undefined){
   console.log("log erto :",document.getElementsByClassName("closeButton")[0]);
   document.getElementsByClassName("closeButton")[0].addEventListener("click", hideCloseButton);
@@ -115,7 +113,11 @@ if (!window.embedded_svc) {
 } else {
     initESW('https://service.force.com');
 }
-
+if(document.getElementsByClassName("closeButton")[0]!=undefined){
+  console.log("log erto1 :",document.getElementsByClassName("closeButton")[0]);
+  document.getElementsByClassName("closeButton")[0].addEventListener("click", hideCloseButton);
+    console.log("log erto : dom listener is added for : ",document.getElementsByClassName("closeButton")[0]);
+  }
 </script>
 
 <script language="JavaScript" type="text/javascript">
@@ -176,6 +178,11 @@ extraPrechatFormDetails: [{
 }]
 });
 }
+if(document.getElementsByClassName("closeButton")[0]!=undefined){
+  console.log("log erto2 :",document.getElementsByClassName("closeButton")[0]);
+  document.getElementsByClassName("closeButton")[0].addEventListener("click", hideCloseButton);
+    console.log("log erto : dom listener is added for : ",document.getElementsByClassName("closeButton")[0]);
+  }
 
 
 </script>
