@@ -103,16 +103,7 @@ if (!window.embedded_svc) {
 </script>
 
 <script language="JavaScript" type="text/javascript">
-function addListenerForCloseButton() {
-	document.getElementsByClassName("closeButton")[0].addEventListener("click", hideCloseButton);
-	console.log("log erto : dom listener is added for : ",document.getElementsByClassName("closeButton")[0]);
-}
 
-function hideCloseButton() {
-console.log("log erto : button is clicked and listener(hider) method is ran")
-  document.getElementsByClassName("closeButton")[0].style.visibility = "hidden";
-	console.log("log erto : button hided")
-}
 
 function startEmbeddedChat(pCaseId,pFirstName,pLastName) {
 
@@ -168,7 +159,15 @@ extraPrechatFormDetails: [{
   "displayToAgent": true
 }]
 });
-addListenerForCloseButton();
+}
+
+document.getElementsByClassName("closeButton")[0].addEventListener("click", hideCloseButton);
+	console.log("log erto : dom listener is added for : ",document.getElementsByClassName("closeButton")[0]);
+
+function hideCloseButton() {
+console.log("log erto : button is clicked and listener(hider) method is ran")
+  document.getElementsByClassName("closeButton")[0].style.visibility = "hidden";
+	console.log("log erto : button hided")
 }
 </script>
 
