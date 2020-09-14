@@ -40,6 +40,16 @@
 }
 </style>
 
+<script>
+document.getElementsByClassName("closeButton")[0].addEventListener("click", hideCloseButton);
+	console.log("log erto : dom listener is added for : ",document.getElementsByClassName("closeButton")[0]);
+
+function hideCloseButton() {
+console.log("log erto : button is clicked and listener(hider) method is ran")
+  document.getElementsByClassName("closeButton")[0].style.visibility = "hidden";
+	console.log("log erto : button hided")
+}
+</script>
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
@@ -161,14 +171,7 @@ extraPrechatFormDetails: [{
 });
 }
 
-document.getElementsByClassName("closeButton")[0].addEventListener("click", hideCloseButton);
-	console.log("log erto : dom listener is added for : ",document.getElementsByClassName("closeButton")[0]);
 
-function hideCloseButton() {
-console.log("log erto : button is clicked and listener(hider) method is ran")
-  document.getElementsByClassName("closeButton")[0].style.visibility = "hidden";
-	console.log("log erto : button hided")
-}
 </script>
 
 </body>
