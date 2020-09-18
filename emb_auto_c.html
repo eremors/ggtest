@@ -42,6 +42,7 @@
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
+
     var initESW = function(gslbBaseURL) {
         embedded_svc.settings.displayHelpButton = false; //Or false
         embedded_svc.settings.language = 'tr'; //For example, enter 'en' or 'en-US'
@@ -70,12 +71,25 @@
 
         embedded_svc.settings.enabledFeatures = ['LiveAgent'];
         embedded_svc.settings.entryFeature = 'LiveAgent';
-//---------------------------------
-embedded_svc.addEventHandler("afterDestroy", function(data) {
-                window.open("https://test-gittigidiyor.cs102.force.com/postchatpagevfredirection/PostChatPage", '_blank');
+				//--------------------------------------------
+				var isChatEndedByUser = false;
+				embedded_svc.addEventHandler("afterDestroy", function(data) {
+
+                var chatDetails='{"prechatDetails":[{"label":"Case ID","value":"';
+                chatDetails+='5001j000005zhSPAAY';
+                chatDetails+='","entityMaps":[],"transcriptFields":[],"displayToAgent":true,"doKnowledgeSearch":false},{"label":"eswLiveAgentDevName","value":"EmbeddedServiceLiveAgent_Parent04I1j0000004CQdEAM_1723780d429","entityMaps":[],"transcriptFields":[],"displayToAgent":false,"doKnowledgeSearch":false},{"label":"hasOnlyExtraPrechatInfo","value":false,"entityMaps":[],"transcriptFields":[],"displayToAgent":false,"doKnowledgeSearch":false}],"geoLocation":{"organization":"Tellcom Iletisim Hizmetleri A.s.","region":"35","city":"Izmir","countryName":"Turkey","latitude":38.4127,"countryCode":"TR","longitude":27.1384},"visitorId":"3219e95d-19f5-47f5-b3de-2453596c146c","customDetails":[],"agent":{"userId":"0050X000008UfSv","agentName":"Ertuğrul - GittiGidiyor Müşteri Hizmetleri","transfer":0}}';
+                if(!isChatEndedByUser){
+									window.open("https://test-gittigidiyor.cs102.force.com/postchatpagevfredirection/PostChatPage?chatDetails="+chatDetails+"&isDestroyed=true",'_blank',);
+                }
+
                 console.log("afterDestroy event was fired.");
             });
-//---------------------------------
+						embedded_svc.addEventHandler("onChatEndedByChasitor", function(data) {
+		                isChatEndedByUser = true;
+		                console.log("onChatEndedByChasitor event was fired. ");
+		            });
+				//--------------------------------------------
+
         embedded_svc.init(
             'https://gittigidiyor--TEST.cs102.my.salesforce.com',
             'https://test-gittigidiyor-tr.cs102.force.com',
