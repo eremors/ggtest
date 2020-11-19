@@ -74,6 +74,9 @@
         embedded_svc.settings.entryFeature = 'LiveAgent';
 				//--------------------------------------------
 				var isChatEndedByUser = false;
+				embedded_svc.addEventHandler("afterMaximize", function(data) {
+					console.log("afterMaximize");
+				});
 				embedded_svc.addEventHandler("afterDestroy", function(data) {
 
                 var chatDetails='{"prechatDetails":[{"label":"Case ID","value":"';
