@@ -3,7 +3,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	</head>
-<body onload="startEmbeddedChat('','Argun','Semavi')">
+<body onload="startEmbeddedChat('','Argun','Semavi','Chatbot parameter by Alotech Lorem Ipsum')">
 
 <h1>Welcome to GG Chat (Auto-start with contact) 1434</h1>
 <p>Please click "chat" button to talk to an agent about one of the following records:</p>
@@ -15,10 +15,10 @@
 <td>Record1</td><td><Chat</td>
 </tr>
 <tr>
-<td>Record2</td><td><button onclick="startEmbeddedChat('5001j000005BKpbAAG')">Chat</button></td>
+<td>Record2</td><td><button onclick="startEmbeddedChat('5001j000005BKpbAAG','Argun','Semavi','Chatbot parameter by Alotech Lorem Ipsum')">Chat</button></td>
 </tr>
 <tr>
-<td>Record3</td><td><button onclick="startEmbeddedChat('5001j000005BKr3AAG')">Chat</button></td>
+<td>Record3</td><td><button onclick="startEmbeddedChat('5001j000005BKr3AAG','Argun','Semavi','Chatbot parameter by Alotech Lorem Ipsum')">Chat</button></td>
 </tr>
 <tr>
 <td>Record4</td><td>Chat</td>
@@ -122,7 +122,7 @@
 </script>
 
 <script language="JavaScript" type="text/javascript">
-function startEmbeddedChat(pCaseId,pFirstName,pLastName) {
+function startEmbeddedChat(pCaseId,pFirstName,pLastName,pChatbotValue) {
 
 	embedded_svc.liveAgentAPI.startChat({
 		directToAgentRouting: {
@@ -167,7 +167,7 @@ function startEmbeddedChat(pCaseId,pFirstName,pLastName) {
 			"displayToAgent":true
 		},{
 			"label": "ChatBot",
-			"value": <chatBot variable – AloTech pass edecek>,
+			"value": pChatbotValue,
 			"transcriptFields": ["ChatBot__c"],
 			"displayToAgent": true
 		}, {
