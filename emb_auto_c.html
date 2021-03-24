@@ -5,7 +5,7 @@
 	</head>
 <body onload="startEmbeddedChat('','Argun','Semavi','Chatbot parameter by Alotech Lorem Ipsum1~~Chatbot parameter by Alotech Lorem Ipsum2~~Chatbot parameter by Alotech Lorem Ipsum3')">
 
-<h1>Welcome to GG Chat (Auto-start with contact) 20210324-1320</h1>
+<h1>Welcome to GG Chat (Auto-start with contact) 20210324-1410</h1>
 <p>Please click "chat" button to talk to an agent about one of the following records:</p>
 <p><a href="index.html">Back</a></p>
 
@@ -87,15 +87,17 @@
 		console.log("afterDestroy event was fired.");
 		});
 		
-		embedded_svc.addEventHandler("onChatEndedByChasitor", function(data) {
-		isChatEndedByUser = true;
-		console.log("onChatEndedByChasitor event was fired. ");
-		});
-		
 		embedded_svc.addEventHandler("onChatEndedByAgent", function(data) {
 		isChatEndedByUser = true;
-		console.log("onChatEndedByAgent event was fired. ");
+		console.log("onChatEndedByAgent event was fired.2");
 		});
+		
+		embedded_svc.addEventHandler("onChatEndedByChasitor", function(data) {
+		isChatEndedByUser = true;
+		console.log("onChatEndedByChasitor event was fired.2");
+		});
+		
+
 		
 		//--------------------------------------------
 
